@@ -16,4 +16,3 @@
 Відповідь: посилання на репозиторій AsciiArtify із задокументованим висновком — файл doc/Concept.md у форматі Markdown з таблицею порівняння та вбудованим демо, гілка main (приклад демо https://github.com/wagoodman/dive , приклад таблиці https://github.com/den-vasyliev/SRE-Competency-Matrix )
 
 
-![Image](.data/demo.gif)
