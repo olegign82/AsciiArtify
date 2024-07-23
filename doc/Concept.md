@@ -9,4 +9,4 @@
 
 
 
-![Image](..data/demo.gif)
+![Image](...data/demo.gif)
