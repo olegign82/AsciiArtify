@@ -4,9 +4,9 @@
 
 |                                     | minikube                                                          | k3d                                                                 | kind                                                                                 |
 |-------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Infrastructure and Networking       | Linux, Bash, TCP/IP, DNS, Load Balancers                          | Advanced networking tools like F5, Citrix, Cloudflare, etc.         | Advanced networking tools like Cisco, Juniper, and Arista                            |
-| Troubleshooting                     | Nagios, Zabbix, ELK Stack, Prometheus, Grafana                    | Advanced log analysis tools like Splunk, Graylog, or Loggly         | Advanced log analysis tools like Datadog, New Relic, or AppDynamics                  |
-| Cloud Computing and Virtualization  | AWS, GCP, Azure, VirtualBox, Docker, Kubernetes                   | Advanced cloud infrastructure tools like Terraform, Puppet, or Chef | Advanced cloud infrastructure tools like CloudFormation, ARM templates, or SaltStack |
+| Deployment option                   | Stand-alone, container-based                                      | Container-based                                                     | Container-based                                                                      |
+| OS                                  | Win, MacOS, Linux. Additional compatibility with various drivers (including Docker, kvm2,	VirtualBox)   | Linux (optimized for Linux). Win and MacOS through the use of VM    | Linux, Win and MacOS. Multiple versions of Kubernetes. Supports variety of container runtimes (Docker, containerd, CRI-O)|
+| CLI Available                       | Yes (more options)                                                | Yes, but less features                                              | Yes, similar to k3d                                                                  |
 | Distributed Systems and Scalability | Apache Kafka, RabbitMQ, Redis, HAProxy, Nginx                     | Advanced distributed systems tools like Cassandra, Hadoop, or Spark | Advanced distributed systems tools like Kubernetes Operators, Istio, or Linkerd      |
 | Security and Compliance             | Security best practices, firewalls, encryption, SSL/TLS           | Advanced security tools like Nessus, Qualys, or OpenVAS             | Advanced security tools like HashiCorp Vault, AWS KMS, or Azure Key Vault            |
 | Leadership and Communication        | Collaboration tools, Agile                                        | Project management tools, team building skills                      | Interpersonal skills, communication skills, mentoring skills                         |
@@ -19,9 +19,9 @@ The list of commands to create k3d cluster and deploy custom hello-world contain
 
 ```
 k3d cluster create demo
-k create deploy demo --image olegign82/demo:v1.0.1
-k get po -w
-k port-forward deploy/demo 8080
+kubectl create deploy demo --image olegign82/demo:v1.0.1
+kubectl get po -w
+kubectl port-forward deploy/demo 8080
 ```
 
 ![Image](../.data/demo.gif)
@@ -35,8 +35,16 @@ curl 127.0.0.1:8080
 
 ![Image](../.data/demo1.gif)
 
+---
+K3D is a container-based Kubernetes solution equipped with a user-friendly CLI. Notably, it comes pre-packaged with a metrics server, supports multi-node clusters, and includes a Kubernetes version selector. Its standout feature, however, lies in its remarkable startup performance, making it an excellent choice for running integration tests within CI pipelines.
 
-Conclusion:
+Kind - as a container-based Kubernetes solution with a CLI, Kind offers a lightweight and user-friendly approach to running local Kubernetes clusters. It is a Kubernetes special interest group project that supports multi-node clusters and provides a Kubernetes version selector. Although its startup performance may not match that of K3D, Kind is a reliable choice for container-based local Kubernetes deployments.
+
+Minikube is the final of the three container-based solutions presented in this blog post.
+What makes Minikube special is that it’s not just a container-based solution but supports also various VM technologies, making it a standalone solution as well. Its feature set is very rich: It has a Kubernetes version selector, offers a metrics server, Kubernetes dashboard, and various other addons. However, in terms of startup performance, Minikube’s speed may not match that of K3D and Kind. Nevertheless, its flexibility and wide range of features make it a dependable choice for local Kubernetes deployments.
+---
+
+**Conclusion:**
 ---
 
 Consiring all the tools (minikube, k3d and kind) are very close in nature and suitable for our needs, there is no big difference which one to use.
