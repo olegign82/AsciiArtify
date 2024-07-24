@@ -15,10 +15,29 @@
 
 
 
+The list of commands to create k3d cluster and deploy custom hello-world container:
+
+```
+k3d cluster create demo
+k create deploy demo --image olegign82/demo:v1.0.1
+k get po -w
+k port-forward deploy/demo 8080
+```
 
 ![Image](../.data/demo.gif)
 
 
+Test from another terminal window before starting k3d cluster and after (response received):
 
+```
+curl 127.0.0.1:8080
+```
 
 ![Image](../.data/demo1.gif)
+
+
+Conclusion:
+---
+
+Consiring all the tools (minikube, k3d and kind) are very close in nature and suitable for our needs, there is no big difference which one to use.
+The suggestion was to use k3d due to it being the most lightweighted solution, an easy one and also the one we have experience with.
