@@ -8,6 +8,8 @@ There are multiple platforms that you can try out to run Kubernetes locally, amo
 
 See doc/Concept.md page for comparison table and cluster deployment demo video.
 
+**Consider using Podman to avoid licensing issue:**
+
 Docker license is not required only for personal use (subscription is required for bigger companies) when Podman is an open-source project and is free to use. Podman also puts focus on security and simplicity.
 
 
