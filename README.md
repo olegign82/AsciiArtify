@@ -7,6 +7,8 @@ Setting up a local Kubernetes environment as your development environment is the
 There are multiple platforms that you can try out to run Kubernetes locally, among those are minikube, kind and k3d. 
 
 See doc/Concept.md page for comparison table and cluster deployment demo video.
+See doc/POC.md page for the steps to setup ArgoCD with Kubernetes.
+See doc/MVP.md page for product demo and autosync enabled.
 
 **Consider using Podman to avoid licensing issue:**
 
